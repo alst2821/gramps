@@ -26,7 +26,7 @@ import os
 import tempfile
 import unittest as U
 
-from gramps.gen.constfunc import get_env_var
+import gramps.gen.const as const
 
 usage_note="""
   **************************************************************
@@ -133,7 +133,7 @@ class Test3(U.TestCase):
     here = tu.absdir()
     bases = (here, tempfile.gettempdir())
     asubs = [os.path.join(b,"test_sub") for b in bases]
-    home = get_env_var("HOME")
+    home = const.HOME_DIR
     if home:
         home_junk = os.path.join(home,"test_junk")
     def _rmsubs(self):
